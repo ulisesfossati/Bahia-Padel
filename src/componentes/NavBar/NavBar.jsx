@@ -1,6 +1,6 @@
 import { Box, Flex, Img, Link, Text } from '@chakra-ui/react';
 import React from 'react';
-import logo from '/image-removebg-preview.png';
+import logo from '/logo-sinFondo.png';
 
 const NavBar = () => {
   return (

@@ -1,34 +1,50 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { Hoja1 } from './componentes/Hoja1/hoja1'
-import { NavBar } from './componentes/NavBar/NavBar'
-import { Hoja2 } from './componentes/Hoja2/Hojados'
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Hoja1 } from './componentes/Hoja1/hoja1';
+import { NavBar } from './componentes/NavBar/NavBar';
+import { Hoja2 } from './componentes/Hoja2/Hojados';
+import { Hoja3 } from './componentes/Hoja3/Hoja3';
+import { Hoja4 } from './componentes/Hoja4/Hoja4';
 
+import { AnimatePresence } from 'framer-motion';
+import Preloader from './componentes/preloader/Preloader';
 
+const MainApp = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1200); // Slight delay to match preloader transition
 
+    return () => clearTimeout(timer);
+  }, []);
 
+  return (
+    <>
+      <AnimatePresence>
+        {!isLoaded && <Preloader/>}
+      </AnimatePresence>
 
-
-
+      {isLoaded && (
+        <>
+          <NavBar />
+          <Hoja1 />
+          <Hoja2 />
+          <Hoja3 />
+          <Hoja4 />
+        </>
+      )}
+    </>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <ChakraProvider>
-
-      <NavBar/>
-
-      <Hoja1/>
-      <Hoja2/>
-
-   
-     
-     
-    
-      
+    <ChakraProvider>
+      <MainApp />
     </ChakraProvider>
-    
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
