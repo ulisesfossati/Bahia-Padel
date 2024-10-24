@@ -83,7 +83,7 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
 
 const Hoja4 = () => {
   return (
-    <Box as="section" bg="#1b2021" padding="2em" paddingBottom="5.5em">
+    <Box as="section" bg="#30343f" padding="2em" paddingBottom="5.5em">
       <Text 
         fontSize="7xl"  
         color="#ea638c" 
