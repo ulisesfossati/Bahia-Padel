@@ -2,6 +2,7 @@ import { Box, Img, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import red from '/fotored.jpg'
 import ubicacion from '/ubicacion-rosa.png'
+import bahia from '/BahiaPadelPared.jpeg'
 
 const Hoja2 = () => {
     return(
@@ -30,7 +31,7 @@ const Hoja2 = () => {
                     <Text paddingTop="1em" color="#ea638c">08:00 AM - 23:00PM</Text>
                     <Text paddingTop="1em" color="#ea638c">08:00 AM - 23:00PM</Text>
                 </Box>
-                <Box marginTop="2em" as="span" display="flex"><Img w="1.2em" h="1.2em" src={ubicacion}/> <Link color="white" >BAHIA PADEL</Link>
+                <Box marginTop="2em" as="span" display="flex"><Img w="1.2em" h="1.2em" src={ubicacion}/> <Link color="white" href='https://maps.app.goo.gl/EQ3o8Jmp6MyadzjX9' >BAHIA PADEL</Link>
                 </Box>
                 </Text>
             </Box>
@@ -38,7 +39,7 @@ const Hoja2 = () => {
             </Text>
             </Box>
             
-            <Img w="60em" h="50em" src={red}/>
+            <Img w="50%" h="50em" src={bahia}/>
           
         </Box>
     )

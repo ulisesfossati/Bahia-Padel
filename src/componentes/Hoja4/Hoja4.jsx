@@ -59,7 +59,7 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
           <Text fontSize="1.9rem" fontWeight="bold">
             {horario}
           </Text>
-          <Text fontSize="1.9rem" fontWeight="bold">
+          <Text fontSize="1.8rem" fontWeight="bold" whiteSpace="nowrap">
             {seghorario}
           </Text>
         </Box>
@@ -113,8 +113,8 @@ const Hoja4 = () => {
         <HoverImage 
           src={ati} 
           nombre="ATILIO PICON" 
-          horario="LUNES Y VIERNES: 8AM A 14HS"
-          seghorario="MARTES A JUEVES: 8AM A 17HS"
+          horario="LUNES Y MARTES: 8AM A 15HS"
+          seghorario="MIERCOLES A VIERNES: 8AM A 14HS"
         />
         <HoverImage 
           src={lihue} 

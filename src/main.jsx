@@ -10,6 +10,8 @@ import { Hoja4 } from './componentes/Hoja4/Hoja4';
 
 import { AnimatePresence } from 'framer-motion';
 import Preloader from './componentes/preloader/Preloader';
+import { Footer } from './componentes/Footer/Footer';
+import { MiniFooter } from './componentes/MiniFooter/MiniFooter';
 
 const MainApp = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,10 +33,12 @@ const MainApp = () => {
       {isLoaded && (
         <>
           <NavBar />
-          <Hoja1 />
+          <Hoja1/>
           <Hoja2 />
           <Hoja3 />
           <Hoja4 />
+          <Footer/>
+          <MiniFooter/>
         </>
       )}
     </>
