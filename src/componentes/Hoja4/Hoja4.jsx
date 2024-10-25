@@ -59,7 +59,7 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
           <Text fontSize="1.9rem" fontWeight="bold">
             {horario}
           </Text>
-          <Text fontSize="1.8rem" fontWeight="bold" whiteSpace="nowrap">
+          <Text fontSize="1.8rem" fontWeight="bold" whiteSpace="pre-line">
             {seghorario}
           </Text>
         </Box>
@@ -83,7 +83,7 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
 
 const Hoja4 = () => {
   return (
-    <Box as="section" bg="#30343f" padding="2em" paddingBottom="5.5em">
+    <Box as="section" bg="#1b2021" padding="2em" paddingBottom="5.5em" id='Clases'>
       <Text 
         fontSize="7xl"  
         color="#ea638c" 
@@ -113,8 +113,8 @@ const Hoja4 = () => {
         <HoverImage 
           src={ati} 
           nombre="ATILIO PICON" 
-          horario="LUNES Y MARTES: 8AM A 15HS"
-          seghorario="MIERCOLES A VIERNES: 8AM A 14HS"
+          horario="MARTES Y JUEVES: 10AM A 17HS"
+          seghorario="LUNES MIERCOLES Y VIERNES: 8AM A 14HS"
         />
         <HoverImage 
           src={lihue} 

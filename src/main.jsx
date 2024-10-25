@@ -10,9 +10,9 @@ import { Hoja4 } from './componentes/Hoja4/Hoja4';
 
 import { AnimatePresence } from 'framer-motion';
 import Preloader from './componentes/preloader/Preloader';
-import { Footer } from './componentes/Footer/Footer';
-import { MiniFooter } from './componentes/MiniFooter/MiniFooter';
+
 import { SegFooter } from './componentes/prueba2/Segfooter';
+import { Hoja5 } from './componentes/Hoja5/Hoja5';
 
 const MainApp = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,6 +38,7 @@ const MainApp = () => {
           <Hoja2 />
           <Hoja3 />
           <Hoja4 />
+          <Hoja5/>
           <SegFooter/>
         </>
       )}

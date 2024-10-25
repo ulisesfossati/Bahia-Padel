@@ -4,6 +4,25 @@ import logo from '/logo-sinFondo.png';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const SegFooter = () => {
+  // Función para manejar el desplazamiento preciso con ajustes específicos
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      // Obtener la posición de la sección
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+
+      // Ajuste de desplazamiento
+      const offset = 100;
+      const targetPosition = sectionPosition - offset;
+
+      // Desplazamiento suave usando window.scrollTo
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <Box as="footer" bg="#1b2021" p="2em 0" display="flex" flexWrap="wrap">
       
@@ -19,41 +38,80 @@ const SegFooter = () => {
       >
         <Img src={logo} />
         <Text as="span" display="flex" flexDir="column" gap="0.7em" fontSize="1rem" fontFamily="barlow"> 
-          {['INICIO', 'TORNEOS', 'CLASES', 'BUFFET', 'STORE'].map((item) => (
-            <Link 
-              key={item}
-              textDecor="none" 
-              color="white" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-            >
-              {item}
-            </Link>
-          ))}
+          <Link 
+            textDecor="none" 
+            color="#D6D6D6" 
+            _hover={{ color: "#ea638c" }} 
+            transition="color 0.3s ease" 
+            fontFamily="barlow"
+            onClick={() => handleScroll('Inicio')}
+            cursor="pointer"
+          >
+            INICIO
+          </Link>
+          <Link 
+            textDecor="none" 
+            color="#D6D6D6" 
+            _hover={{ color: "#ea638c" }} 
+            transition="color 0.3s ease" 
+            fontFamily="barlow"
+            onClick={() => handleScroll('Torneos')}
+            cursor="pointer"
+          >
+            TORNEO
+          </Link>
+          <Link 
+            textDecor="none" 
+            color="#D6D6D6" 
+            _hover={{ color: "#ea638c" }} 
+            transition="color 0.3s ease" 
+            fontFamily="barlow"
+            onClick={() => handleScroll('Horarios')}
+            cursor="pointer"
+          >
+            HORARIOS
+          </Link>
+          <Link 
+            textDecor="none" 
+            color="#D6D6D6" 
+            _hover={{ color: "#ea638c" }} 
+            transition="color 0.3s ease" 
+            fontFamily="barlow"
+            onClick={() => handleScroll('Clases')}
+            cursor="pointer"
+          >
+            CLASES
+          </Link>
+          <Link 
+            textDecor="none" 
+            color="#D6D6D6" 
+            _hover={{ color: "#ea638c" }} 
+            transition="color 0.3s ease" 
+            fontFamily="barlow"
+            onClick={() => handleScroll('Palas')}
+            cursor="pointer"
+          >
+            STORE
+          </Link>
         </Text>
       </Box>
       {/* TERMINA BOX DE LOGO Y NAV */}
 
       {/* Horarios e íconos */}
       <Text as="span">
-
-<Box><Text  fontWeight="bold" fontFamily="barlow" color="white" marginLeft="2em">HORARIOS</Text></Box>
-<Box><Text fontFamily="barlow" color="gray" marginLeft="2em">LUNES A DOMINGOS: 08:00 - 23:00</Text></Box>
-<Box display="flex" gap="0.5em" marginLeft="1.7em" marginTop="2em">
-
- {/* Ícono de Instagram */}
- <Link href="https://www.instagram.com/bahiapadel3/?hl=es-la" isExternal cursor="pointer">
-   <Icon as={FaInstagram} boxSize="1.9em" color="white" transition="300ms" cursor="pointer" _hover={{ color: '#ea638c' , transition:'300ms' }} />
- </Link>
-
- {/* Ícono de WhatsApp */}
- <Link href="https://wa.me/5492914709293" isExternal>
-   <Icon as={FaWhatsapp} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c' , transition:'300ms' }} />
- </Link>
-</Box>
-
-</Text>
+        <Box><Text fontWeight="bold" fontFamily="barlow" color="#D6D6D6" marginLeft="2em">HORARIOS</Text></Box>
+        <Box><Text fontFamily="barlow" color="gray" marginLeft="2em">LUNES A DOMINGOS: 08:00 - 23:00</Text></Box>
+        <Box display="flex" gap="0.5em" marginLeft="1.7em" marginTop="2em">
+          {/* Ícono de Instagram */}
+          <Link href="https://www.instagram.com/bahiapadel3/?hl=es-la" isExternal cursor="pointer">
+            <Icon as={FaInstagram} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c', transition: '300ms' }} />
+          </Link>
+          {/* Ícono de WhatsApp */}
+          <Link href="https://wa.me/5492914709293" isExternal>
+            <Icon as={FaWhatsapp} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c', transition: '300ms' }} />
+          </Link>
+        </Box>
+      </Text>
 
       {/* Mapa */}
       <Box 
@@ -74,76 +132,47 @@ const SegFooter = () => {
           loading="lazy"
         />
       </Box>
-      
+
       {/* Contacto */}
       <Box display="flex" flexDirection="column" w="28%" ml="2em" mt={['2em', '0']}>
-        <Text fontWeight="bold" fontFamily="barlow" color="white" mb="0.5em">
-          CONTACTO
-        </Text>
+        <Text fontWeight="bold" fontFamily="barlow" color="#D6D6D6" mb="0.5em">CONTACTO</Text>
 
-        <Box display="flex" flexDir="column" alignItems="start" >
-          <Text fontFamily="barlow" color="gray">
-            BAHIA BLANCA
-          </Text>
-          <Text 
-            fontFamily="barlow" 
-            color="gray" 
-          >
-           BUENOS AIRES
-          </Text>
-          <Text 
-            fontFamily="barlow" 
-            color="gray" 
-          >
-           ARGENTINA
-          </Text>
+        <Box display="flex" flexDir="column" alignItems="start">
+          <Text fontFamily="barlow" color="gray">BAHIA BLANCA</Text>
+          <Text fontFamily="barlow" color="gray">BUENOS AIRES</Text>
+          <Text fontFamily="barlow" color="gray">ARGENTINA</Text>
         </Box>
 
-
-
         <Box display="flex" alignItems="center" gap="0.2em" marginTop="1em">
-          <Text fontFamily="barlow" color="gray"
-                      fontSize="1.1rem"
->
-            E-mail:
-          </Text>
+          <Text fontFamily="barlow" color="gray" fontSize="1.1rem">E-mail:</Text>
           <Link 
             href="mailto:bahiapadel3@gmail.com" 
-          
             fontFamily="barlow" 
-            color="white" 
+            color="#D6D6D6" 
             _hover={{ color: "#ea638c" }}
             cursor="pointer"
             fontWeight="bold"
             fontSize="1.1rem"
-
-
           >
             bahiapadel3@gmail.com
           </Link>
         </Box>
 
-        <Box display="flex" alignItems="center" gap="0.2em" marginTop="1em" >
-          <Text fontFamily="barlow" color="gray" fontSize="1.1rem">
-            Desarrollado por 
-          </Text>
+        <Box display="flex" alignItems="center" gap="0.2em" marginTop="1em">
+          <Text fontFamily="barlow" color="gray" fontSize="1.1rem">Desarrollado por</Text>
           <Link 
             fontFamily="barlow" 
-            color="white" 
+            color="#D6D6D6" 
             cursor="pointer"
             href="https://www.instagram.com/ulisesfossati/?hl=es-la"
             _hover={{ color: "#ea638c" }}
             fontWeight="bold"
             fontSize="1.1rem"
-
           >
-           Fossati Ulises
+            Fossati Ulises
           </Link>
-
         </Box>
       </Box>
-
-
     </Box>
   );
 }

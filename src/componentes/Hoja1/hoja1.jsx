@@ -108,7 +108,8 @@ const Hoja1 = () => {
         m="0" 
         p="0" 
         border="0" 
-        position="relative"
+        position="relative" 
+        id='Inicio'
       >
         <Slider {...settings}>
           {images.map((image, index) => (
@@ -168,13 +169,16 @@ const Hoja1 = () => {
 
                 {/* Botón centrado debajo del segundo texto */}
                 <Button 
-                  mt="1em" 
-                  bg="#1b2021"
-                  padding="1.7em 2em"
-                  fontSize="1.2rem"
-                  color="white"
-                  _hover={{ bg: "#ea638c" }}
-                  alignSelf="start" // Alinea el botón al inicio
+            mt="1em"
+            bg="#ea6b8d"
+            color="white"
+            _hover={{ bg: "#d65b7b" }}
+            _active={{ bg: "#c44c6d" }}
+            px="2em"
+            py="0.5em"
+            p="1.5em 1.7em"
+            fontSize="1.2rem"
+            borderRadius="4PX"
                 >
                   CONSULTARNOS
                 </Button>

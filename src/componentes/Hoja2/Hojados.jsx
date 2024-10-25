@@ -6,7 +6,7 @@ import bahia from '/BahiaPadelPared.jpeg'
 
 const Hoja2 = () => {
     return(
-        <Box as='section' bg="#1b2021" display="flex" alignItems="center" w="100%" justifyContent="center" gap="9em">
+        <Box as='section' bg="#1b2021" display="flex" alignItems="center" w="100%" justifyContent="center" gap="9em" id='Horarios'>
             <Box as='div' display="flex" flexDir="column" alignItems="center" justifyContent="center"  w="50em">
 
             <Text  fontSize="7xl"  color="#ea638c" fontWeight="medium" > NUESTROS HORARIOS</Text>
