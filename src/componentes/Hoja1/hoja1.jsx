@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Img, Text } from '@chakra-ui/react';
+import { Box, Button, Img, Text, useBreakpointValue } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import 'slick-carousel/slick/slick.css';
@@ -7,28 +7,58 @@ import 'slick-carousel/slick/slick-theme.css';
 
 // Imágenes importadas
 import foto1 from '/Foto1.jpeg';
-import foto2 from '/Foto2.jpeg';
-import foto3 from '/Foto3.jpeg';
+import foto2 from '/fotocarro.jpeg';
+import foto3 from '/fotocarro2.jpeg';
 
-// Lista de imágenes para el carrusel con texto personalizado
+// Lista de imágenes para el carrusel con texto personalizado y responsive
 const images = [
   { 
     src: foto1, 
     alt: 'Imagen 1', 
-    text: 'Complejo Deportivo\n De Padel', 
-    subText: 'Tres canchas de blindex con vestuario y duchas' 
+    text: {
+      base: 'Complejo Deportivo\nDe Padel', 
+      sm: 'Complejo Deportivo\nDe Padel', 
+      md: 'Complejo Deportivo\nDe Padel', 
+      lg: 'Complejo Deportivo\nDe Padel'
+    }, 
+    subText: {
+      base: 'Tres canchas de blindex con vestuario y duchas', 
+      sm: 'Tres canchas de blindex con vestuario y duchas',
+      md: 'Tres canchas de blindex con vestuario y duchas',
+      lg: 'Tres canchas de blindex con vestuario y duchas'
+    }
   },
   { 
     src: foto2, 
     alt: 'Imagen 2', 
-    text: 'Torneos \n Todos los Meses', 
-    subText: 'Torneo de todas las categorias con premios en efectivo'
+    text: {
+      base: 'Torneos\nTodos los Meses', 
+      sm: 'Torneos\nTodos los Meses', 
+      md: 'Torneos\nTodos los Meses', 
+      lg: 'Torneos\nTodos los Meses'
+    }, 
+    subText: {
+      base: 'Torneos para todas las categorías con premios en efectivo', 
+      sm: 'Torneos para todas las categorías con premios en efectivo',
+      md: 'Torneos para todas las categorías con premios en efectivo',
+      lg: 'Torneos para todas las categorías con premios en efectivo'
+    }
   },
   { 
     src: foto3, 
     alt: 'Imagen 3', 
-    text: 'Store y Buffet\n Completos', 
-    subText: 'Equípate con todo lo que necesitas para jugar'
+    text: {
+      base: 'Store y Buffet\n Completos', 
+      sm: 'Store y Buffet\n Completos', 
+      md: 'Store y Buffet\n Completos', 
+      lg: 'Store y Buffet\n Completos'
+    }, 
+    subText: {
+      base: 'Equípate con todo lo necesario en la tienda y disfruta del buffet', 
+      sm: 'Equípate con todo lo necesario en la tienda y disfruta del buffet',
+      md: 'Equípate con todo lo necesario en la tienda y disfruta del buffet',
+      lg: 'Equípate con todo lo necesario en la tienda y disfruta del buffet'
+    }
   }
 ];
 
@@ -38,6 +68,7 @@ function NextArrow(props) {
   return (
     <Button 
       position="absolute" 
+      display={['none', 'none', 'none', 'none']}
       right="70px" 
       top="50%" 
       transform="translateY(-50%)"
@@ -61,6 +92,7 @@ function PrevArrow(props) {
   return (
     <Button 
       position="absolute" 
+      display={['none', 'none', 'none', 'none']}
       left="70px" 
       top="50%" 
       transform="translateY(-50%)"
@@ -89,10 +121,11 @@ const Hoja1 = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    pauseOnHover: false,
     beforeChange: (current, next) => setCurrentSlide(next),
   };
 
@@ -112,79 +145,87 @@ const Hoja1 = () => {
         id='Inicio'
       >
         <Slider {...settings}>
-          {images.map((image, index) => (
-            <Box key={index} position="relative">
-              <Img 
-                src={image.src} 
-                alt={image.alt} 
-                width="100%" 
-                h="100vh" 
-                objectFit="cover" 
-                m="0"
-                p="0"
-                border="0"
-              />
-              <Box 
-                position="absolute" 
-                top="0" 
-                left="0" 
-                width="100%" 
-                height="100vh" 
-                bg="rgba(0, 0, 0, 0.4)" 
-                zIndex="1"
-              />
-              
-              {/* Texto personalizado centrado */}
-              <Box 
-                position="absolute" 
-                top="45%" 
-                left="30%" 
-                transform="translate(-50%, -50%)" 
-                color="white"
-                p="1em" 
-                borderRadius="md"
-                textAlign="start"
-                zIndex="2"
-              >
-                <Text 
-                  fontSize="4.5rem" 
-                  fontWeight="bold" 
-                  mb="0" 
-                  whiteSpace="pre-line" 
-                  textAlign="start"
-                  lineHeight="1.2"
-                >
-                  {image.text}
-                </Text>
-                <Text 
-                  fontSize="2xl" 
-                  fontWeight="normal" 
-                  whiteSpace="pre-line"
-                  mt="0.2em" 
-                  lineHeight="1.1" 
-                  fontFamily="barlow"
-                >
-                  {image.subText}
-                </Text>
+          {images.map((image, index) => {
+            // Texto y subtítulo responsivos
+            const responsiveText = useBreakpointValue(image.text);
+            const responsiveSubText = useBreakpointValue(image.subText);
 
-                {/* Botón centrado debajo del segundo texto */}
-                <Button 
-            mt="1em"
-            bg="#ea6b8d"
-            color="white"
-            _hover={{ bg: "#d65b7b" }}
-            _active={{ bg: "#c44c6d" }}
-            px="2em"
-            py="0.5em"
-            p="1.5em 1.7em"
-            fontSize="1.2rem"
-            borderRadius="4PX"
+            return (
+              <Box key={index} position="relative">
+                <Img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  width="100%" 
+                  h="100vh" 
+                  objectFit="cover" 
+                  m="0"
+                  p="0"
+                  border="0"
+                />
+                <Box 
+                  position="absolute" 
+                  top="0" 
+                  left="0" 
+                  width="100%" 
+                  height="100vh" 
+                  bg="rgba(0, 0, 0, 0.4)" 
+                  zIndex="1"
+                />
+                
+                {/* Texto personalizado centrado */}
+                <Box 
+                  position="absolute" 
+                  top={["50%","45%","45%","45%"]} 
+                  left={["55%","40%","38%","25%"]} 
+                  transform="translate(-50%, -50%)" 
+                  color="white"
+                  p="0em" 
+                  borderRadius="md"
+                  textAlign="start"
+                  zIndex="2"
                 >
-                  CONSULTARNOS
-                </Button>
+                  <Text 
+                    fontSize={["3rem","3.5rem","4rem","3.5rem"]} 
+                    fontWeight="bold" 
+                    mb="0" 
+                    whiteSpace="pre-line" 
+                    textAlign="start"
+                    lineHeight="1.2"
+                    w="8em"
+                  >
+                    {responsiveText}
+                  </Text>
+                  <Text 
+                    fontSize="2xl" 
+                    fontWeight="normal" 
+                    whiteSpace="pre-line"
+                    mt="0.2em" 
+                    lineHeight="1.1" 
+                    fontFamily="barlow"
+                    w={["15em","15em","20em","15em"]}
+                  >
+                    {responsiveSubText}
+                  </Text>
+
+                  {/* Botón centrado debajo del segundo texto */}
+                  <Button 
+                    mt="1em"
+                    bg="#ea6b8d"
+                    color="white"
+                    _hover={{ bg: "#d65b7b" }}
+                    _active={{ bg: "#c44c6d" }}
+                    px="2em"
+                    py="0.5em"
+                    p="1.5em 1.7em"
+                    fontSize="1.2rem"
+                    borderRadius="4PX"
+                  >
+                    CONSULTARNOS
+                  </Button>
+                </Box>
               </Box>
-            </Box>
-          ))}
+            );
+          })}
         </Slider>
 
         {/* Barra de progreso segmentada */}

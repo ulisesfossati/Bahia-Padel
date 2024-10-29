@@ -50,16 +50,16 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
         // bg="rgba(0, 0, 0, 0.7)" // Fondo negro semitransparente
       >
         {/* Nombre del profesor */}
-        <Text fontSize="2.5rem" fontWeight="bold">
+        <Text fontSize="2.3rem" fontWeight="bold">
           {nombre}
         </Text>
 
         {/* Horario del profesor */}
         <Box as="span" display="flex" flexDir="column">
-          <Text fontSize="1.9rem" fontWeight="bold">
+          <Text fontSize={["1.6rem","1.9rem","1.9rem","1.9rem"]} fontWeight="bold">
             {horario}
           </Text>
-          <Text fontSize="1.8rem" fontWeight="bold" whiteSpace="pre-line">
+          <Text fontSize={["1.6rem","1.8rem","1.8rem","1.8rem"]} fontWeight="bold" whiteSpace="pre-line">
             {seghorario}
           </Text>
         </Box>
@@ -73,6 +73,7 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
           h="3em"
           fontSize="1.3rem"
           mt="0.5em"
+          marginBottom={["0.3em","0","0","0"]}
         >
           Contactar
         </Button>
@@ -85,8 +86,8 @@ const Hoja4 = () => {
   return (
     <Box as="section" bg="#1b2021" padding="2em" paddingBottom="5.5em" id='Clases'>
       <Text 
-        fontSize="7xl"  
-        color="#ea638c" 
+       fontSize={["4rem","7xl","7xl","7xl"]}  
+       color="#ea638c" 
         fontWeight="medium" 
         textAlign="center" 
         paddingTop="1em"
@@ -119,8 +120,8 @@ const Hoja4 = () => {
         <HoverImage 
           src={lihue} 
           nombre="LIHUEL FIGUEROA" 
-          horario="LUNES Y VIERNES: 8AM A 14HS"
-          seghorario="MARTES A JUEVES: 8AM A 17HS"
+          horario="LUNES A VIERNES: 8AM A 14HS"
+          
         />
       </Box>
     </Box>

@@ -11,7 +11,7 @@ const Hoja3 = () => {
   return (
     <Box as="section" bg="#30343f" paddingBottom="5.5em" h="100%" id='Torneos'>
       <Text 
-        fontSize="7xl"  
+       fontSize={["4rem","7xl","7xl","7xl"]}  
         color="#ea638c" 
         fontWeight="medium" 
         textAlign="center" 
@@ -27,10 +27,12 @@ const Hoja3 = () => {
         gap="5em" 
         paddingTop="1em" 
         flexWrap="wrap"
+        
       >
         {/* Imagen 1 con efecto de izquierda a derecha */}
         <MotionImg 
           h="60vh" 
+          w={["22em","33em","33em","33em"]}
           src={torneo1}
           initial={{ opacity: 0, x: -100 }} // Desplazamiento inicial desde la izquierda
           whileInView={{ opacity: 1, x: 0 }} // Desplaza a la posición original
@@ -41,6 +43,8 @@ const Hoja3 = () => {
         {/* Imagen 2 con efecto de izquierda a derecha */}
         <MotionImg 
           h="60vh" 
+          w={["22em","33em","33em","33em"]}
+
           src={torneo2}
           initial={{ opacity: 0, x: -100 }} // Desplazamiento inicial desde la izquierda
           whileInView={{ opacity: 1, x: 0 }} // Desplaza a la posición original

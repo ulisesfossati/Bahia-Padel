@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Img, Spinner } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import logo from '/logo-sinFondo.png';
+import logo from '/logo-completo.png';
 import { NavBar } from '../NavBar/NavBar';
 import { Hoja1 } from '../Hoja1/hoja1';
 import { Hoja2 } from '../Hoja2/Hojados';
@@ -51,7 +51,7 @@ const Preloader = () => {
           transition={{ duration: 0.9, ease: 'easeInOut' }}
           overflow="hidden"
         >
-          <Img src={logo} alt="Logo" w="100px" mb="1em" />
+          <Img src={logo} alt="Logo" w="150px" mb="1em" />
           <Spinner size="xl" color="white" thickness="4px" speed="0.8s" />
         </MotionBox>
       )}

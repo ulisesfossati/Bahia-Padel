@@ -1,6 +1,7 @@
 import { Box, Flex, Img, Link, Text, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
 import React from 'react';
-import logo from '/logo-sinFondo.png';
+import logo from '/logo-completo.png';
+import { Hamburguesa } from '../Hamburguesa/Hamburguesa';
 
 const NavBar = () => {
   // Función para manejar el desplazamiento preciso con ajuste adicional
@@ -23,13 +24,19 @@ const NavBar = () => {
   };
 
   return (
-    <Box as="section" bg="#1b2021" padding="1em 0" w="100%" display="flex" alignItems="center" position="fixed" zIndex="10000">
-      <Text as="span" display="flex" w="20%" alignItems="end" justifyContent="end">
-        <Link href='https://www.instagram.com/bahiapadel3/?hl=es-la' isExternal>
-          <Img src={logo} alt="Bahia Padel Instagram" />
+    <Box as="section" bg="#1b2021" padding={["0.7em 0", "1em 0", "1em 0","1em 0"]} w="100%" display="flex" alignItems="center"  position="fixed" zIndex="10000">
+      <Text as="span" display="flex" w={["40%", "20%", "20%","20%"]}alignItems="end" justifyContent="center" > 
+        <Link href='https://www.instagram.com/bahiapadel3/?hl=es-la' isExternal  >
+          <Img h={["3.3em", "0", "5em","5em"]} w={["4.2em", "0", "6em","7em"]} src={logo} alt="Bahia Padel Instagram"   />
         </Link>
       </Text>
-      <Flex as="nav" gap="4em" fontSize="1.55rem" w="53%" justifyContent="end">
+      <Text as="span" display={['block', 'none', 'block', 'none']}>
+        <Hamburguesa/>
+
+      </Text>
+
+
+      <Flex as="nav" gap={["0", "0", "2em", "4em"]} fontSize="1.55rem" width={['100%', '75%', '80%', '55%']}  justifyContent="center" display={['none', 'flex', 'none', 'flex']} >
         <Link 
           onClick={() => handleScroll('Inicio')}
           textDecor="none" 
