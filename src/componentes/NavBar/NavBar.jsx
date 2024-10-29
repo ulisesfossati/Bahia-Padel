@@ -24,19 +24,19 @@ const NavBar = () => {
   };
 
   return (
-    <Box as="section" bg="#1b2021" padding={["0.7em 0", "1em 0", "1em 0","1em 0"]} w="100%" display="flex" alignItems="center"  position="fixed" zIndex="10000">
+    <Box as="section" bg="#1b2021" padding={["0.7em 0", "1.3em 0", "1em 0","1em 0"]} w="100%" display="flex" alignItems="center"  position="fixed" zIndex="10000">
       <Text as="span" display="flex" w={["40%", "20%", "20%","20%"]}alignItems="end" justifyContent="center" > 
         <Link href='https://www.instagram.com/bahiapadel3/?hl=es-la' isExternal  >
-          <Img h={["3.3em", "0", "5em","5em"]} w={["4.2em", "0", "6em","7em"]} src={logo} alt="Bahia Padel Instagram"   />
+          <Img h={["3.3em", "5em", "5em","5em"]} w={["4.2em", "6em", "6em","7em"]} src={logo} alt="Bahia Padel Instagram"   />
         </Link>
       </Text>
-      <Text as="span" display={['block', 'none', 'block', 'none']}>
+      <Text as="span" display={['block', 'block', 'block', 'none']}>
         <Hamburguesa/>
 
       </Text>
 
 
-      <Flex as="nav" gap={["0", "0", "2em", "4em"]} fontSize="1.55rem" width={['100%', '75%', '80%', '55%']}  justifyContent="center" display={['none', 'flex', 'none', 'flex']} >
+      <Flex as="nav" gap={["0", "0", "2em", "3em", "4em"]} fontSize="1.55rem" width={['100%', '75%', '80%', '55%']}  justifyContent="center" display={['none', 'none', 'none', 'flex']} >
         <Link 
           onClick={() => handleScroll('Inicio')}
           textDecor="none" 

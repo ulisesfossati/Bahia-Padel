@@ -19,7 +19,7 @@ const Hamburguesa = () => {
       {/* Botón de menú hamburguesa/cruz */}
       <Box 
         position="fixed" 
-        top={["5","5","9","5"]} 
+        top={["5","12","9","5"]} 
         right={["5","5","8","5"]}  
         onClick={handleMenuToggle}
         cursor="pointer"

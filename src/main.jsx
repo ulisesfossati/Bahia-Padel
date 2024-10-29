@@ -11,7 +11,7 @@ import { Hoja4 } from './componentes/Hoja4/Hoja4';
 import { AnimatePresence } from 'framer-motion';
 import Preloader from './componentes/preloader/Preloader';
 
-import { SegFooter } from './componentes/prueba2/Segfooter';
+import { SegFooter } from './componentes/Footer/Segfooter';
 import { Hoja5 } from './componentes/Hoja5/Hoja5';
 
 const MainApp = () => {

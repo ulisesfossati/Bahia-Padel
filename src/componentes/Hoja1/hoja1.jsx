@@ -176,7 +176,7 @@ const Hoja1 = () => {
                 <Box 
                   position="absolute" 
                   top={["50%","45%","45%","45%"]} 
-                  left={["55%","40%","38%","25%"]} 
+                  left={["55%","45%","38%","25%"]} 
                   transform="translate(-50%, -50%)" 
                   color="white"
                   p="0em" 
