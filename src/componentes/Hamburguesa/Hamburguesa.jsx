@@ -1,5 +1,5 @@
 import { Box, Flex, Img, Link, Stack, useDisclosure, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '/logo-completo.png';
 import hambur from '/icons8-hamburguesa.svg';
 import cruz from '/icons8-cruz.svg';
@@ -8,10 +8,21 @@ const Hamburguesa = () => {
   const { isOpen, onToggle } = useDisclosure(); // Controla la apertura/cierre del menú
   const [isHamburger, setIsHamburger] = useState(true); // Controla la apariencia del botón
 
+  // Establece el desplazamiento suave en el componente al cargar
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
+
   // Maneja la animación y el cambio de íconos
   const handleMenuToggle = () => {
     onToggle();
     setIsHamburger(!isHamburger);
+  };
+
+  // Cierra el menú y cambia el ícono al hacer clic en un enlace
+  const handleLinkClick = () => {
+    onToggle(); // Cierra el menú
+    setIsHamburger(true); // Cambia el ícono a hamburguesa
   };
 
   return (
@@ -58,11 +69,43 @@ const Hamburguesa = () => {
 
         {/* Enlaces del menú */}
         <Stack spacing={4} mt="2em">
-          <Link color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>Inicio</Link>
-          <Link color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>Torneos</Link>
-          <Link color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>Horarios</Link>
-          <Link color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>Clases</Link>
-          
+          <Link 
+            href="#Inicio" 
+            color="white" 
+            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
+            _hover={{ color: "#ea638c" }} 
+            onClick={handleLinkClick} // Cierra el menú al hacer clic
+          >
+            Inicio
+          </Link>
+          <Link 
+            href="#Torneos" 
+            color="white" 
+            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
+            _hover={{ color: "#ea638c" }} 
+            onClick={handleLinkClick} // Cierra el menú al hacer clic
+          >
+            Torneos
+          </Link>
+          <Link 
+            href="#Horarios" 
+            color="white" 
+            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
+            _hover={{ color: "#ea638c" }} 
+            onClick={handleLinkClick} // Cierra el menú al hacer clic
+          >
+            Horarios
+          </Link>
+          <Link 
+            href="#Clases" 
+            color="white" 
+            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
+            _hover={{ color: "#ea638c" }} 
+            onClick={handleLinkClick} // Cierra el menú al hacer clic
+          >
+            Clases
+          </Link>
+
           {/* Menú de Store con opciones */}
           <Menu>
             <MenuButton as={Link} color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>
@@ -71,7 +114,7 @@ const Hamburguesa = () => {
             <MenuList 
               bg="#1b2021" 
               borderColor="#1b2021" 
-              minW="5em" // Ancho mínimo reducido
+              minW="5em" 
               p="0.2em"  
               mt="0.5em"
             >
@@ -82,6 +125,7 @@ const Hamburguesa = () => {
                 _hover={{ color: "#ea638c" }} 
                 transition="color 0.3s ease" 
                 color="white"
+                onClick={handleLinkClick} // Cierra el menú al hacer clic
               >
                 Palas
               </MenuItem>
@@ -92,6 +136,7 @@ const Hamburguesa = () => {
                 _hover={{ color: "#ea638c" }} 
                 transition="color 0.3s ease" 
                 color="white"
+                onClick={handleLinkClick} // Cierra el menú al hacer clic
               >
                 Zapatillas
               </MenuItem>
@@ -102,6 +147,7 @@ const Hamburguesa = () => {
                 _hover={{ color: "#ea638c" }} 
                 transition="color 0.3s ease" 
                 color="white"
+                onClick={handleLinkClick} // Cierra el menú al hacer clic
               >
                 Indumentaria
               </MenuItem>

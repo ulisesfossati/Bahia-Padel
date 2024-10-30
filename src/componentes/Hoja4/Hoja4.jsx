@@ -8,7 +8,7 @@ import ati from '/Atilio-picon.jpg';
 // Crear un componente Motion para la animación
 const MotionBox = motion(Box);
 
-const HoverImage = ({ src, nombre, horario, seghorario }) => {
+const HoverImage = ({ src, nombre, horario, seghorario, href }) => {
   return (
     <MotionBox 
       position="relative" 
@@ -47,7 +47,6 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
         transition="0.3s ease"
         _groupHover={{ opacity: "1" }}
         textAlign="left"
-        // bg="rgba(0, 0, 0, 0.7)" // Fondo negro semitransparente
       >
         {/* Nombre del profesor */}
         <Text fontSize="2.3rem" fontWeight="bold">
@@ -66,6 +65,10 @@ const HoverImage = ({ src, nombre, horario, seghorario }) => {
 
         {/* Botón de contacto */}
         <Button 
+          as="a"
+          href={href} // Enlace para cada botón
+          target="_blank"
+          rel="noopener noreferrer"
           bg="black" 
           color="white" 
           _hover={{ bg: "#ea638c" }}
@@ -110,18 +113,20 @@ const Hoja4 = () => {
           nombre="FACUNDO HUEBRA" 
           horario="LUNES: 8AM A 14HS"
           seghorario="MARTES A VIERNES 11AM A 17HS"
+          href="https://wa.me/5492984375775" 
         />
         <HoverImage 
           src={ati} 
           nombre="ATILIO PICON" 
           horario="MARTES Y JUEVES: 10AM A 17HS"
           seghorario="LUNES MIERCOLES Y VIERNES: 8AM A 14HS"
+          href="https://wa.me/5492923463593" 
         />
         <HoverImage 
           src={lihue} 
           nombre="LIHUEL FIGUEROA" 
           horario="LUNES A VIERNES: 8AM A 14HS"
-          
+          href="https://wa.me/5492392606714" 
         />
       </Box>
     </Box>
