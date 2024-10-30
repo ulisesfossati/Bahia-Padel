@@ -220,7 +220,7 @@ const Hoja1 = () => {
                     fontSize="1.2rem"
                     borderRadius="4PX"
                   >
-                    CONSULTARNOS
+                    CONSULTANOS
                   </Button>
                 </Box>
               </Box>
