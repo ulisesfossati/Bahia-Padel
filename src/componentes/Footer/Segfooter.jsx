@@ -151,11 +151,11 @@ const SegFooter = () => {
           <Box display="flex" flexDir="column" textAlign={["center","right","right","left"]}   w="60%"  >
         <Text fontWeight="bold" fontFamily="barlow" color="#D6D6D6" marginLeft={["0","0","0.1em","0"]} mb="0.5em" textAlign="left" fontSize={["1rem","1rem","1.2rem","1rem"]} whiteSpace="nowrap" >CONTACTO</Text>
 
-        <Box display="flex" flexDir="column" alignItems={["center","end","end","start"]} fontSize={["1rem","1rem","1.2rem","1rem"]} >
-          <Text fontFamily="barlow" color="gray" whiteSpace="nowrap">BAHIA BLANCA</Text>
-          <Text fontFamily="barlow" color="gray" whiteSpace="nowrap">BUENOS AIRES</Text>
-          <Text fontFamily="barlow"   w={["100%","108%","118%","100%"]} textAlign={["left","center","center","left"]} color="gray"  whiteSpace="nowrap">ARGENTINA</Text>
-        </Box>
+        <Box fontFamily="barlow" color="gray" textAlign="center">
+      <Text whiteSpace="nowrap" fontFamily="barlow" textAlign="left">BAHIA BLANCA</Text>
+      <Text whiteSpace="nowrap" fontFamily="barlow" textAlign="left">BUENOS AIRES</Text>
+      <Text whiteSpace="nowrap" fontFamily="barlow" textAlign="left">ARGENTINA</Text>
+    </Box>
         </Box>
 
        <Box display="flex" flexDir="column"  w="60%" >
