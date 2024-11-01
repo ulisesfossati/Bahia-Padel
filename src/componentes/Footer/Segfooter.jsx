@@ -123,7 +123,7 @@ const SegFooter = () => {
         justifyContent="center" 
         alignItems="center" 
         mt={['2em', '0']}
-        bg="red"
+        
         ml="2em"
         mr="2em"
          
