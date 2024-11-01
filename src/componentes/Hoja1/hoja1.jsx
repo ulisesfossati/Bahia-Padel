@@ -209,19 +209,24 @@ const Hoja1 = () => {
 
                   {/* Botón centrado debajo del segundo texto */}
                   <Button 
-                    mt="1em"
-                    bg="#ea6b8d"
-                    color="white"
-                    _hover={{ bg: "#d65b7b" }}
-                    _active={{ bg: "#c44c6d" }}
-                    px="2em"
-                    py="0.5em"
-                    p="1.5em 1.7em"
-                    fontSize="1.2rem"
-                    borderRadius="4PX"
-                  >
-                    CONSULTANOS
-                  </Button>
+  as="a"
+  href="https://www.instagram.com/bahiapadel3/?hl=es-la" 
+  target="_blank"
+  rel="noopener noreferrer"
+  mt="1em"
+  bg="#ea6b8d"
+  color="white"
+  _hover={{ bg: "#d65b7b" }}
+  _active={{ bg: "#c44c6d" }}
+  px="2em"
+  py="0.5em"
+  p="1.5em 1.7em"
+  fontSize="1.2rem"
+  borderRadius="4PX"
+>
+  CONSULTANOS
+</Button>
+
                 </Box>
               </Box>
             );

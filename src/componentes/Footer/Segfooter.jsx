@@ -116,23 +116,32 @@ const SegFooter = () => {
       </Box>
 
       {/* Mapa */}
+      
       <Box 
         flex="1" 
         display="flex" 
         justifyContent="center" 
         alignItems="center" 
         mt={['2em', '0']}
+        bg="red"
+        ml="2em"
+        mr="2em"
+         
+
+        
       
         
       >
+        
         <Box 
           as="iframe"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12456.657480695065!2d-62.33212496309706!3d-38.69106845619177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95edbbd59327a8a9%3A0x41377fc20616f9df!2sBahia%20Padel!5e0!3m2!1ses!2sar!4v1729748546366!5m2!1ses!2sar"
-          width={["43vh","55vh", "60vh", "60vh"]}
+          width={["43vh","55vh", "60vh", "100%"]}
           height={["220", "250"]}
           style={{ border: 0 }}
           allowFullScreen="" 
           loading="lazy"
+          
         />
       </Box>
 
