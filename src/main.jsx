@@ -13,6 +13,8 @@ import Preloader from './componentes/preloader/Preloader';
 
 import { SegFooter } from './componentes/Footer/Segfooter';
 import { Hoja5 } from './componentes/Hoja5/Hoja5';
+import { Hoja6 } from './componentes/Hoja6/Hoja6';
+import { Hoja7 } from './componentes/Hoja7/Hoja7';
 
 const MainApp = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,6 +41,8 @@ const MainApp = () => {
           <Hoja3 />
           <Hoja4 />
           <Hoja5/>
+          <Hoja6/>
+          <Hoja7/>
           <SegFooter/>
         </>
       )}

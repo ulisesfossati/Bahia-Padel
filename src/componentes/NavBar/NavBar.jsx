@@ -105,9 +105,9 @@ const NavBar = () => {
               _hover={{ color: "#ea638c" }} 
               transition="color 0.3s ease" 
               color="white"
-              onClick={() => handleScroll('Indumentarias')}
+              onClick={() => handleScroll('Accesorios')}
             >
-              Indumentarias
+              Accesorios
             </MenuItem>
           </MenuList>
         </Menu>

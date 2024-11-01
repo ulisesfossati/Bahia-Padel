@@ -5,10 +5,10 @@ import hambur from '/icons8-hamburguesa.svg';
 import cruz from '/icons8-cruz.svg';
 
 const Hamburguesa = () => {
-  const { isOpen, onToggle } = useDisclosure(); // Controla la apertura/cierre del menú
-  const [isHamburger, setIsHamburger] = useState(true); // Controla la apariencia del botón
+  const { isOpen, onToggle } = useDisclosure(); 
+  const [isHamburger, setIsHamburger] = useState(true); 
 
-  // Establece el desplazamiento suave en el componente al cargar
+  
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
@@ -118,39 +118,50 @@ const Hamburguesa = () => {
               p="0.2em"  
               mt="0.5em"
             >
-              <MenuItem 
-                bg="#1b2021"  
-                fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-                p="0.4em" 
-                _hover={{ color: "#ea638c" }} 
-                transition="color 0.3s ease" 
-                color="white"
-                onClick={handleLinkClick} // Cierra el menú al hacer clic
-              >
-                Palas
-              </MenuItem>
-              <MenuItem 
-                bg="#1b2021"  
-                fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-                p="0.4em" 
-                _hover={{ color: "#ea638c" }} 
-                transition="color 0.3s ease" 
-                color="white"
-                onClick={handleLinkClick} // Cierra el menú al hacer clic
-              >
-                Zapatillas
-              </MenuItem>
-              <MenuItem 
-                bg="#1b2021" 
-                fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-                p="0.4em" 
-                _hover={{ color: "#ea638c" }} 
-                transition="color 0.3s ease" 
-                color="white"
-                onClick={handleLinkClick} // Cierra el menú al hacer clic
-              >
-                Indumentaria
-              </MenuItem>
+<MenuItem 
+  as="a" 
+  bg="#1b2021"
+  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
+  p="0.4em" 
+  _hover={{ color: "#ea638c" }} 
+  transition="color 0.3s ease" 
+  color="white"
+  onClick={() => {
+    const section = document.querySelector("#Palas");
+    const offset = -110; 
+    const position = section.getBoundingClientRect().top + window.scrollY + offset;
+    window.scrollTo({ top: position, behavior: "smooth" });
+    handleLinkClick();
+  }}
+>
+  Palas
+</MenuItem>
+<MenuItem 
+  as="a" 
+  bg="#1b2021"  
+  href="#Zapatillas" 
+  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
+  p="0.4em" 
+  _hover={{ color: "#ea638c" }} 
+  transition="color 0.3s ease" 
+  color="white"
+  onClick={handleLinkClick} 
+>
+  Zapatillas
+</MenuItem>
+<MenuItem 
+  as="a" 
+  bg="#1b2021"
+  href="#Accesorios" 
+  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
+  p="0.4em" 
+  _hover={{ color: "#ea638c" }} 
+  transition="color 0.3s ease" 
+  color="white"
+  onClick={handleLinkClick} 
+>
+  Accesorios
+</MenuItem>
             </MenuList>
           </Menu>
         </Stack>

@@ -118,14 +118,15 @@ const Hoja4 = () => {
         <HoverImage 
           src={ati} 
           nombre="ATILIO PICON" 
-          horario="MARTES Y JUEVES: 10AM A 17HS"
-          seghorario="LUNES MIERCOLES Y VIERNES: 8AM A 14HS"
+          horario="LUNES A JUEVES: 10AM A 17HS"
+          seghorario="VIERNES: 8AM A 14HS"
           href="https://wa.me/5492923463593" 
         />
         <HoverImage 
           src={lihue} 
           nombre="LIHUEL FIGUEROA" 
-          horario="LUNES A VIERNES: 8AM A 14HS"
+          horario="LUNES Y VIERNES: 8AM A 14HS"
+          seghorario="MARTES A JUEVES 8AM A 17HS"
           href="https://wa.me/5492392606714" 
         />
       </Box>
