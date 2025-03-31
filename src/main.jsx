@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -15,6 +17,8 @@ import { SegFooter } from './componentes/Footer/Segfooter';
 import { Hoja5 } from './componentes/Hoja5/Hoja5';
 import { Hoja6 } from './componentes/Hoja6/Hoja6';
 import { Hoja7 } from './componentes/Hoja7/Hoja7';
+import { Falsahoja3 } from './componentes/Falsa Hoja 3/FalsaHoja3';
+import { HojaRanking } from './componentes/HojaRanking/HojaRanking';
 
 const MainApp = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,6 +42,8 @@ const MainApp = () => {
           <NavBar />
           <Hoja1/>
           <Hoja2 />
+          <Falsahoja3/>
+          <HojaRanking/>
           <Hoja3 />
           <Hoja4 />
           <Hoja5/>

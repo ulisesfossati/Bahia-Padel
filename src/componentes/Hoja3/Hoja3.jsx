@@ -9,7 +9,7 @@ const MotionImg = motion(Img);
 
 const Hoja3 = () => {
   return (
-    <Box as="section" bg="#30343f" paddingBottom="5.5em" h="100%" id='Torneos'>
+    <Box as="section" bg="#30343f" paddingBottom="5.5em" h="100%" >
       <Text 
        fontSize={["4rem","7xl","7xl","7xl"]}  
         color="#ea638c" 

@@ -1,49 +1,91 @@
-import { Box, Flex, Img, Link, Stack, useDisclosure, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Img,
+  Link,
+  Stack,
+  useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Text
+} from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import logo from '/logo-completo.png';
 import hambur from '/icons8-hamburguesa.svg';
 import cruz from '/icons8-cruz.svg';
+import menu from '/Menu-BahiaPadel.pdf'; // PDF desde carpeta public
 
 const Hamburguesa = () => {
-  const { isOpen, onToggle } = useDisclosure(); 
-  const [isHamburger, setIsHamburger] = useState(true); 
+  const { isOpen, onToggle } = useDisclosure();
+  const [isHamburger, setIsHamburger] = useState(true);
 
-  
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
 
-  // Maneja la animación y el cambio de íconos
   const handleMenuToggle = () => {
     onToggle();
     setIsHamburger(!isHamburger);
   };
 
-  // Cierra el menú y cambia el ícono al hacer clic en un enlace
   const handleLinkClick = () => {
-    onToggle(); // Cierra el menú
-    setIsHamburger(true); // Cambia el ícono a hamburguesa
+    onToggle();
+    setIsHamburger(true);
+  };
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const offset = id === 'Palas' ? -110 : -100;
+      const position = section.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top: position, behavior: "smooth" });
+      handleLinkClick();
+    }
+  };
+
+  const textStyle = {
+    fontSize: ["1.3rem", "1.3rem", "1.9rem", "1.3rem"],
+    color: "white",
+    position: "relative",
+    display: "inline-block",
+    transition: "color 0.3s ease",
+    _hover: {
+      color: "#ea638c",
+      _after: { width: "100%" }
+    },
+    _after: {
+      content: '""',
+      position: "absolute",
+      bottom: "-2px",
+      left: 0,
+      height: "2px",
+      width: "0%",
+      backgroundColor: "#ea638c",
+      transition: "width 0.3s ease"
+    }
   };
 
   return (
     <>
-      {/* Botón de menú hamburguesa/cruz */}
-      <Box 
-        position="fixed" 
-        top={["5","12","9","5"]} 
-        right={["5","5","8","5"]}  
+      {/* Botón hamburguesa/cruz */}
+      <Box
+        position="fixed"
+        top={["5", "12", "9", "5"]}
+        right={["5", "5", "8", "5"]}
         onClick={handleMenuToggle}
         cursor="pointer"
         zIndex={1500}
         transition="transform 0.3s"
-        transform={isHamburger ? 'rotate(0deg)' : 'rotate(90deg)'} // Rotación del ícono
+        transform={isHamburger ? 'rotate(0deg)' : 'rotate(90deg)'}
       >
-        <Img 
-          src={isHamburger ? hambur : cruz} 
-          w="35px" 
-          h="35px" 
-          transition="all 0.3s ease" 
-          opacity={isHamburger ? 1 : 0.7} // Opacidad para cambio visual
+        <Img
+          src={isHamburger ? hambur : cruz}
+          w="35px"
+          h="35px"
+          transition="all 0.3s ease"
+          opacity={isHamburger ? 1 : 0.7}
         />
       </Box>
 
@@ -61,113 +103,52 @@ const Hamburguesa = () => {
         flexDirection="column"
         p="1em"
       >
-        {/* Sección del logo y cierre */}
         <Flex align="center" justify="space-between" mb="-2em" h="13em">
-          <Img src={logo} w={["6em","6em","8em","6em"]} h={["5em","5em","7em","5em"]} />
-          <Box onClick={handleMenuToggle} cursor="pointer"></Box>
+          <Img src={logo} w={["6em", "6em", "8em", "6em"]} h={["5em", "5em", "7em", "5em"]} />
         </Flex>
 
-        {/* Enlaces del menú */}
+        {/* Enlaces */}
         <Stack spacing={4} mt="2em">
-          <Link 
-            href="#Inicio" 
-            color="white" 
-            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
-            _hover={{ color: "#ea638c" }} 
-            onClick={handleLinkClick} // Cierra el menú al hacer clic
-          >
-            Inicio
-          </Link>
-          <Link 
-            href="#Torneos" 
-            color="white" 
-            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
-            _hover={{ color: "#ea638c" }} 
-            onClick={handleLinkClick} // Cierra el menú al hacer clic
-          >
-            Torneos
-          </Link>
-          <Link 
-            href="#Horarios" 
-            color="white" 
-            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
-            _hover={{ color: "#ea638c" }} 
-            onClick={handleLinkClick} // Cierra el menú al hacer clic
-          >
-            Horarios
-          </Link>
-          <Link 
-            href="#Clases" 
-            color="white" 
-            fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} 
-            _hover={{ color: "#ea638c" }} 
-            onClick={handleLinkClick} // Cierra el menú al hacer clic
-          >
-            Clases
+          {["Inicio", "Torneos", "Horarios", "Clases"].map((item) => (
+            <Link key={item} onClick={() => scrollToSection(item)} cursor="pointer">
+              <Text {...textStyle}>{item}</Text>
+            </Link>
+          ))}
+
+          {/* Enlace al PDF (Menu) */}
+          <Link href={menu} isExternal onClick={handleLinkClick}>
+            <Text {...textStyle}>Menu</Text>
           </Link>
 
-          {/* Menú de Store con opciones */}
+          {/* Dropdown Store */}
           <Menu>
-            <MenuButton as={Link} color="white" fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]} _hover={{ color: "#ea638c" }}>
-              Store
+            <MenuButton as={Box} p={0} _hover={{ bg: "transparent" }}>
+              <Text {...textStyle}>Store</Text>
             </MenuButton>
-            <MenuList 
-              bg="#1b2021" 
-              borderColor="#1b2021" 
-              minW="5em" 
-              p="0.2em"  
+
+            <MenuList
+              bg="#1b2021"
+              borderColor="#1b2021"
+              minW="5em"
+              p="0.2em"
               mt="0.5em"
             >
-<MenuItem 
-  as="a" 
-  bg="#1b2021"
-  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-  p="0.4em" 
-  _hover={{ color: "#ea638c" }} 
-  transition="color 0.3s ease" 
-  color="white"
-  onClick={() => {
-    const section = document.querySelector("#Palas");
-    const offset = -110; 
-    const position = section.getBoundingClientRect().top + window.scrollY + offset;
-    window.scrollTo({ top: position, behavior: "smooth" });
-    handleLinkClick();
-  }}
->
-  Palas
-</MenuItem>
-<MenuItem 
-  as="a" 
-  bg="#1b2021"  
-  href="#Zapatillas" 
-  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-  p="0.4em" 
-  _hover={{ color: "#ea638c" }} 
-  transition="color 0.3s ease" 
-  color="white"
-  onClick={handleLinkClick} 
->
-  Zapatillas
-</MenuItem>
-<MenuItem 
-  as="a" 
-  bg="#1b2021"
-  href="#Accesorios" 
-  fontSize={["1.3rem","1.3rem","1.9rem","1.3rem"]}
-  p="0.4em" 
-  _hover={{ color: "#ea638c" }} 
-  transition="color 0.3s ease" 
-  color="white"
-  onClick={handleLinkClick} 
->
-  Accesorios
-</MenuItem>
+              {["Palas", "Zapatillas", "Accesorios"].map((item) => (
+                <MenuItem
+                  key={item}
+                  bg="#1b2021"
+                  p="0.4em"
+                  onClick={() => scrollToSection(item)}
+                >
+                  <Text {...textStyle}>{item}</Text>
+                </MenuItem>
+              ))}
             </MenuList>
           </Menu>
         </Stack>
       </Box>
     </>
   );
-}
+};
 
 export { Hamburguesa };
