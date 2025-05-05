@@ -12,10 +12,11 @@ import {
   Text
 } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import logo from '/logo-completo.png';
 import hambur from '/icons8-hamburguesa.svg';
 import cruz from '/icons8-cruz.svg';
-import menu from '/Menu-BahiaPadel.pdf'; // PDF desde carpeta public
+import menu from '/Menu-BahiaPadel.pdf';
 
 const Hamburguesa = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -109,13 +110,24 @@ const Hamburguesa = () => {
 
         {/* Enlaces */}
         <Stack spacing={4} mt="2em">
-          {["Inicio", "Torneos", "Horarios", "Clases"].map((item) => (
+          {/* Inicio */}
+          <Link onClick={() => scrollToSection("Inicio")} cursor="pointer">
+            <Text {...textStyle}>Inicio</Text>
+          </Link>
+
+          {/* Reservar entre Inicio y Torneos */}
+          <Link as={RouterLink} to="/Reservar" onClick={handleLinkClick}>
+            <Text {...textStyle}>Reservar</Text>
+          </Link>
+
+          {/* Torneos y Clases */}
+          {["Torneos", "Clases"].map((item) => (
             <Link key={item} onClick={() => scrollToSection(item)} cursor="pointer">
               <Text {...textStyle}>{item}</Text>
             </Link>
           ))}
 
-          {/* Enlace al PDF (Menu) */}
+          {/* PDF Menu */}
           <Link href={menu} isExternal onClick={handleLinkClick}>
             <Text {...textStyle}>Menu</Text>
           </Link>
