@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from'/logo-completo.png';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -41,7 +42,7 @@ const Admin = () => {
         color="white"
       >
         <VStack spacing={4}>
-          <Img src="/logo-completo.png" w="140px" mb={2} />
+          <Img src={logo} w="140px" mb={2} />
           <Heading as="h2" color="#ea638c" fontSize="2xl" textAlign="center">
             Inicio de sesión - Admin
           </Heading>

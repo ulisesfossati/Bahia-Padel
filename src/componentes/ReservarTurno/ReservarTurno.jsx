@@ -6,6 +6,7 @@ import {
   collection, doc, getDoc, getDocs, setDoc, addDoc, deleteDoc
 } from 'firebase/firestore';
 import { db } from '../../firebase';
+import logo from'/logo-completo.png';
 
 export default function ReservaPadel() {
   const [diaSeleccionado, setDiaSeleccionado] = useState("");
@@ -143,7 +144,7 @@ export default function ReservaPadel() {
 
   return (
     <Box p="2rem" bg="#1b2021" color="white" minH="100vh">
-      <Img src="/logo-completo.png" alt="Bahia Padel" w="150px" mx="auto" mb={6} />
+      <Img src={logo} alt="Bahia Padel" w="150px" mx="auto" mb={6} />
       <Heading as="h2" mb={4} textAlign="center" fontSize="3xl" color="#ea638c">
         Reservar cancha de pádel
       </Heading>

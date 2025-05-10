@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import logo from'/logo-completo.png';
 import {
   Box,
   Heading,
@@ -192,7 +193,7 @@ export default function AdminDashboard() {
 
   return (
     <Box p={["1.5rem", "2rem"]} bg="#1b2021" color="white" minH="100vh">
-      <Img src="/logo-completo.png" alt="Bahia Padel" w={["120px", "160px"]} mx="auto" mb={4} />
+      <Img src={logo} alt="Bahia Padel" w={["120px", "160px"]} mx="auto" mb={4} />
       <Flex justify="center" mb={6}>
         <Button size="sm" fontSize="1.2rem" bg="#ea638c" color="white" _hover={{ bg: "#d9547b" }} onClick={() => {
           localStorage.removeItem('adminLogueado');
