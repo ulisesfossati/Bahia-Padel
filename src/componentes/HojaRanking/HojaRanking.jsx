@@ -20,7 +20,7 @@ const HojaRanking = () => {
         borderRadius="2%" 
         p="1em"
         mx="auto"
-        maxW={["90%", "60%", "60%", "60%"]} // opcional, para que no ocupe todo el ancho
+        maxW={["90%", "60%", "60%", "75%"]} // opcional, para que no ocupe todo el ancho
         bg="#30343f"
       >
         <RankingCarousel />
