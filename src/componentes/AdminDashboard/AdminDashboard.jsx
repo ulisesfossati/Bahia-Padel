@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from'/logo-completo.png';
+import logo from '/logo-completo.png';
 import {
   Box,
   Heading,
@@ -127,12 +127,13 @@ export default function AdminDashboard() {
   };
 
   const reservasDelDia = reservas
-  .filter(reserva => reserva.dia === diaSeleccionado)
-  .sort((a, b) => {
-    const [ah, am] = a.turno.split(':').map(Number);
-    const [bh, bm] = b.turno.split(':').map(Number);
-    return ah !== bh ? ah - bh : am - bm;
-  });
+    .filter(reserva => reserva.dia === diaSeleccionado)
+    .sort((a, b) => {
+      const [ah, am] = a.turno.split(':').map(Number);
+      const [bh, bm] = b.turno.split(':').map(Number);
+      return ah !== bh ? ah - bh : am - bm;
+    });
+
   const horariosDisponibles = horariosPorDia[diaSeleccionado] || [];
 
   const eliminarReserva = async (reserva) => {
@@ -143,7 +144,8 @@ export default function AdminDashboard() {
         r.dia === reserva.dia &&
         r.turno === reserva.turno &&
         r.nombre === reserva.nombre &&
-        r.telefono === reserva.telefono
+        r.telefono === reserva.telefono &&
+        r.dni === reserva.dni
       ) {
         deleteDoc(doc(db, 'reservas', docSnap.id));
       }
@@ -230,7 +232,9 @@ export default function AdminDashboard() {
                 {reservasDelDia.map((reserva, index) => (
                   <ListItem key={index}>
                     <Stack direction={["column", "row"]} justify="space-between">
-                      <Text>{reserva.dia} a las {reserva.turno} - {reserva.nombre} ({reserva.telefono})</Text>
+                      <Text>
+                        {reserva.dia} a las {reserva.turno} - {reserva.nombre} ({reserva.telefono} | DNI: {reserva.dni})
+                      </Text>
                       <Button
                         size="sm"
                         bg="#ea638c"

@@ -49,6 +49,18 @@ const SegFooter = () => {
               INICIO
             </Link>
             <Link 
+  href="/Bahia-Padel/Reservar" 
+  isExternal 
+  textDecor="none" 
+  color="#D6D6D6" 
+  _hover={{ color: "#ea638c" }} 
+  transition="color 0.3s ease" 
+  fontFamily="barlow"
+>
+  RESERVAR
+</Link>
+
+            <Link 
               textDecor="none" 
               color="#D6D6D6" 
               _hover={{ color: "#ea638c" }} 
@@ -57,19 +69,19 @@ const SegFooter = () => {
               onClick={() => handleScroll('Torneos')}
               cursor="pointer"
             >
-              TORNEO
+              TORNEOS
             </Link>
             <Link 
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-              onClick={() => handleScroll('Horarios')}
-              cursor="pointer"
-            >
-              HORARIOS
-            </Link>
+  href="/Bahia-Padel/admin" 
+  isExternal 
+  textDecor="none" 
+  color="#D6D6D6" 
+  _hover={{ color: "#ea638c" }} 
+  transition="color 0.3s ease" 
+  fontFamily="barlow"
+>
+  ADMIN
+</Link>
             <Link 
               textDecor="none" 
               color="#D6D6D6" 

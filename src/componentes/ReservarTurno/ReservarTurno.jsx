@@ -6,13 +6,14 @@ import {
   collection, doc, getDoc, getDocs, setDoc, addDoc, deleteDoc
 } from 'firebase/firestore';
 import { db } from '../../firebase';
-import logo from'/logo-completo.png';
+import logo from '/logo-completo.png';
 
 export default function ReservaPadel() {
   const [diaSeleccionado, setDiaSeleccionado] = useState("");
   const [turnoSeleccionado, setTurnoSeleccionado] = useState("");
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [dni, setDni] = useState("");
   const [mensajeError, setMensajeError] = useState("");
   const [diasDisponibles, setDiasDisponibles] = useState([]);
   const [horariosDisponibles, setHorariosDisponibles] = useState([]);
@@ -67,7 +68,7 @@ export default function ReservaPadel() {
   };
 
   const reservarTurno = async () => {
-    if (!diaSeleccionado || !turnoSeleccionado || !nombre || !telefono) {
+    if (!diaSeleccionado || !turnoSeleccionado || !nombre || !telefono || !dni) {
       setMensajeError("Por favor completá todos los campos.");
       return;
     }
@@ -87,6 +88,7 @@ export default function ReservaPadel() {
         turno: turnoSeleccionado,
         nombre,
         telefono,
+        dni,
         creadaEn: Date.now()
       };
 
@@ -100,6 +102,7 @@ export default function ReservaPadel() {
       setTurnoSeleccionado('');
       setNombre('');
       setTelefono('');
+      setDni('');
       setMensajeError('');
     } catch (err) {
       console.error("Error al reservar turno:", err);
@@ -116,7 +119,8 @@ export default function ReservaPadel() {
         return d.dia === reservaConfirmada.dia &&
                d.turno === reservaConfirmada.turno &&
                d.nombre === reservaConfirmada.nombre &&
-               d.telefono === reservaConfirmada.telefono;
+               d.telefono === reservaConfirmada.telefono &&
+               d.dni === reservaConfirmada.dni;
       });
 
       if (docToDelete) {
@@ -178,6 +182,8 @@ export default function ReservaPadel() {
 
         <Input placeholder="Tu nombre completo" value={nombre} onChange={(e) => setNombre(e.target.value)} />
         <Input placeholder="Teléfono" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
+        <Input placeholder="DNI" value={dni} onChange={(e) => setDni(e.target.value)} />
+        
         <Button bg="#ea638c" color="white" onClick={reservarTurno} _hover={{ bg: "#d9547b" }}>
           Reservar
         </Button>
@@ -190,6 +196,7 @@ export default function ReservaPadel() {
             <Text><strong>Horario:</strong> {reservaConfirmada.turno} hs</Text>
             <Text><strong>Nombre:</strong> {reservaConfirmada.nombre}</Text>
             <Text><strong>Teléfono:</strong> {reservaConfirmada.telefono}</Text>
+            <Text><strong>DNI:</strong> {reservaConfirmada.dni}</Text>
             {puedeCancelar() ? (
               <Button mt={4} bg="#ea638c" color="white" _hover={{ bg: "#d9547b" }} onClick={cancelarReserva}>
                 Cancelar reserva

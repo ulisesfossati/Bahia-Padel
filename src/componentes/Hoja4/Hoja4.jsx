@@ -4,7 +4,7 @@ import React from 'react';
 import facu from '/Facu-Huebra.jpeg';
 import lihue from '/Lihuel-Figueroa.jpeg';
 import ati from '/Atilio-picon.jpg';
-import manu from '/manuadaro.jpg';
+import manu from '/manu-adaro-profe.png';
 
 // Crear un componente Motion para la animación
 const MotionBox = motion(Box);
@@ -118,19 +118,19 @@ const Hoja4 = () => {
           href="https://wa.me/5492984375775" 
         /> */}
 
+<HoverImage 
+  src={ati} 
+  nombre="ATILIO PICON" 
+  horario="LUNES A JUEVES: 10AM A 17HS"
+  seghorario="VIERNES: 8AM A 14HS"
+  href="https://wa.me/5492923463593" 
+/>
                 <HoverImage 
           src={manu} 
           nombre="MANUEL ADARO" 
           horario="LUNES MARTES Y JUEVES"
           seghorario="DE 16AM A 18:30HS"
           href="https://wa.me/5492954670340" 
-        />
-        <HoverImage 
-          src={ati} 
-          nombre="ATILIO PICON" 
-          horario="LUNES A JUEVES: 10AM A 17HS"
-          seghorario="VIERNES: 8AM A 14HS"
-          href="https://wa.me/5492923463593" 
         />
         <HoverImage 
           src={lihue} 
