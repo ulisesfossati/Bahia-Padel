@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Img, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Icon, Img, Link, Text, SimpleGrid } from '@chakra-ui/react';
 import React from 'react';
 import logo from '/logo-completo.png';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
@@ -19,106 +19,109 @@ const SegFooter = () => {
   };
 
   return (
-    <Box as="footer" bg="#1b2021" p="2em 0" display="flex" flexWrap="wrap" flexDirection={['column', 'column', 'column', "row"]}>
-      <Text as="span" display={["flex", "flex", "flex", "contents"]} flexDir="column" alignItems="center">
-        <Box 
-          display="flex" 
-          alignItems="center" 
-          flexDir={["column", "column", "column", "row"]}
-          borderRight={["none", "none", "none", "3px solid white"]}
-          w={["100%", "100%", "100%", "20%"]} 
-          justifyContent="end" 
-          gap="2em" 
-          p="2em 2em"
-        >
-          <Img h="6em" w="9em" src={logo} />
-          <Text as="span" display="flex" flexDir={["row", "row", "row", "column"]} gap="0.7em" fontSize={["1rem", "1.2rem", "1.2rem", "1rem"]} fontFamily="barlow">
-            <Link 
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-              onClick={() => handleScroll('Inicio')}
-              cursor="pointer"
-            >
-              INICIO
-            </Link>
-            <Link 
-              href="/Bahia-Padel/#/Reservar"
-              isExternal
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-            >
-              RESERVAR
-            </Link>
-            <Link 
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-              onClick={() => handleScroll('Torneos')}
-              cursor="pointer"
-            >
-              TORNEOS
-            </Link>
-            <Link 
-              href="/Bahia-Padel/#/admin"
-              isExternal
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-            >
-              ADMIN
-            </Link>
-            <Link 
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-              onClick={() => handleScroll('Clases')}
-              cursor="pointer"
-            >
-              CLASES
-            </Link>
-            <Link 
-              textDecor="none" 
-              color="#D6D6D6" 
-              _hover={{ color: "#ea638c" }} 
-              transition="color 0.3s ease" 
-              fontFamily="barlow"
-              onClick={() => handleScroll('Palas')}
-              cursor="pointer"
-            >
-              STORE
-            </Link>
-          </Text>
-        </Box>
-      </Text>
+    <Box as="footer" bg="#1b2021" p="2em 0" display="flex" flexWrap="wrap" flexDirection={['column', 'column', 'column', 'row']}>
+      <Box 
+        display="flex" 
+        alignItems="center" 
+        flexDir={["column", "column", "column", "row"]}
+        borderRight={["none", "none", "none", "3px solid white"]}
+        w={["100%", "100%", "100%", "20%"]} 
+        justifyContent="end" 
+        gap="2em" 
+        p="2em 2em"
+      >
+        <Img h="6em" w="9em" src={logo} />
+
+        <SimpleGrid columns={[3, 3, 1, 1]} spacing={3} textAlign="center">
+          <Link
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            onClick={() => handleScroll('Inicio')}
+            cursor="pointer"
+            whiteSpace="nowrap"
+
+          >
+            INICIO
+          </Link>
+          <Link
+            href="/Bahia-Padel/#/Reservar"
+            isExternal
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            whiteSpace="nowrap"
+
+          >
+            RESERVAR
+          </Link>
+          <Link
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            onClick={() => handleScroll('Torneos')}
+            cursor="pointer"
+            whiteSpace="nowrap"
+
+          >
+            TORNEOS
+          </Link>
+          <Link
+            href="/Bahia-Padel/#/admin"
+            isExternal
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            whiteSpace="nowrap"
+
+          >
+            ADMIN
+          </Link>
+          <Link
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            onClick={() => handleScroll('Clases')}
+            cursor="pointer"
+            whiteSpace="nowrap"
+          >
+            CLASES
+          </Link>
+          <Link
+            textDecor="none"
+            color="#D6D6D6"
+            _hover={{ color: "#ea638c" }}
+            transition="color 0.3s ease"
+            fontFamily="barlow"
+            onClick={() => handleScroll('Palas')}
+            cursor="pointer"
+          >
+            STORE
+          </Link>
+        </SimpleGrid>
+      </Box>
 
       <Box display="flex" flexDirection="column" alignItems="flex-start" ml="2em">
-        <Flex display={["flex", "flex", "flex", "contents"]} justifyContent="center" alignItems="center" w="100%" gap={["1em", "1em", "1em", "0em"]} marginBottom={["0", "1em", "1em", "0"]}>
-          <Text display="flex" flexDirection="column" alignItems="flex-start">
-            <Text fontWeight="bold" fontFamily="barlow" color="#D6D6D6" fontSize={["1rem", "1.2rem", "1.2rem", "1rem"]} mb="0.5em">HORARIOS</Text>
-            <Text fontFamily="barlow" color="gray" fontSize={["1rem", "1.2rem", "1.2rem", "1rem"]}>LUNES A DOMINGOS: 08:00 - 23:00</Text>
-          </Text>
-
-          <Box display="flex" gap="0.5em" mt="2em">
-            <Link href="https://www.instagram.com/bahiapadel3/?hl=es-la" isExternal>
-              <Icon as={FaInstagram} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c' }} />
-            </Link>
-            <Link href="https://wa.me/5492914709293" isExternal>
-              <Icon as={FaWhatsapp} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c' }} />
-            </Link>
-          </Box>
-        </Flex>
+        <Text fontWeight="bold" fontFamily="barlow" color="#D6D6D6" fontSize={["1rem", "1.2rem", "1.2rem", "1rem"]} mb="0.5em">HORARIOS</Text>
+        <Text fontFamily="barlow" color="gray" fontSize={["1rem", "1.2rem", "1.2rem", "1rem"]}>LUNES A DOMINGOS: 08:00 - 23:00</Text>
+        <Box display="flex" gap="0.5em" mt="1em">
+          <Link href="https://www.instagram.com/bahiapadel3/?hl=es-la" isExternal>
+            <Icon as={FaInstagram} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c' }} />
+          </Link>
+          <Link href="https://wa.me/5492914709293" isExternal>
+            <Icon as={FaWhatsapp} boxSize="1.9em" color="white" transition="300ms" _hover={{ color: '#ea638c' }} />
+          </Link>
+        </Box>
       </Box>
 
       <Box 
@@ -188,6 +191,6 @@ const SegFooter = () => {
       </Box>
     </Box>
   );
-}
+};
 
 export { SegFooter };
