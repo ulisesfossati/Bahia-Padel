@@ -18,7 +18,7 @@ import { Hoja7 } from './componentes/Hoja7/Hoja7';
 import { Falsahoja3 } from './componentes/Falsa Hoja 3/FalsaHoja3';
 import { HojaRanking } from './componentes/HojaRanking/HojaRanking';
 import ReservaPadel from './componentes/ReservarTurno/ReservarTurno';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // ✅ usar HashRouter
 
 import Admin from './componentes/Admin/Admin';
 import AdminDashboard from './componentes/AdminDashboard/AdminDashboard';
@@ -51,7 +51,6 @@ const MainApp = () => {
           <Hoja5 />
           <Hoja6 />
           <Hoja7 />
-          {/* <ReservaPadel /> */}
           <SegFooter />
         </>
       )}
@@ -62,7 +61,7 @@ const MainApp = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ChakraProvider>
-      <Router basename="/Bahia-Padel"> {/* Ruta base agregada */}
+      <Router> {/* ✅ sin basename */}
         <Routes>
           <Route path="/" element={<MainApp />} />
           <Route path="/admin" element={<Admin />} />
